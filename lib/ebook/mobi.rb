@@ -1,5 +1,4 @@
 require_relative 'sectionizer'
-require 'debugger'
 
 module Ebook
   class Mobi
