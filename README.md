@@ -10,10 +10,10 @@ The library to understand the mobi format are a straight port/refactor of the py
 
 ## Usage
 
-After installing the gem you will have access to a command line tool kindlecg.
+After installing the gem you will have access to a command line tool **kindlecg**.
 Just run it and will generate collections based on the directory structure of your ebooks in your kindle device.
 
-*WARNING* The script is under development. It override your current collections!!!
+__WARNING : The script is under development. It overrides your current collections!__
 
 ## Contributing
 
