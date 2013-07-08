@@ -2,8 +2,6 @@
 
 require 'find'
 require 'json'
-require_relative 'ebook/mobi'
-require_relative 'ebook/pdf'
 require_relative 'collections'
 
 class Kindle
@@ -15,27 +13,32 @@ class Kindle
   end
 
   def generate_collection
-    current_collection = nil
+    generate_tree(os_documents_path)
+    @collections
+  end
 
-    Find.find(os_documents_path) do |path|
-      Find.prune if FileTest.directory?(path) && File.basename(path)[0] == '.'
-      next if relative_path(path).empty? || File.basename(path)[0] == '.' 
+  def generate_tree(path, current_collection = nil)
+    Dir.foreach(path) do |item|
+      next if item[0] == '.'
 
-      if FileTest.directory?(path)
-        current_collection = @collections.add(relative_path(path))
+      fullpath = [path, item].join("/")
+      relativepath = relative_path(fullpath)
+      
+      if File.directory?(fullpath)
+        new_collection = @collections.add(relativepath)
+        generate_tree(fullpath, new_collection)
       else
         begin
-          @collections.add_to_collection(current_collection, path) unless current_collection.nil?
+          @collections.add_item_to_collection(current_collection, fullpath) unless current_collection.nil?
         rescue IOError => e
           next
         end
       end
     end
-    @collections
   end
 
   def save
-    IO.write(os_collections_path, @collections.export)
+    IO.write(os_collections_path, @collections.to_json)
   end
 
   private

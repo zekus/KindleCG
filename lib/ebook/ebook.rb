@@ -1,5 +1,6 @@
 require_relative 'sectionizer'
 require_relative 'mobi'
+require_relative 'pdf'
 
 require 'digest'
 require 'forwardable'

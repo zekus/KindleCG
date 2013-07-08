@@ -13,12 +13,14 @@ class Collections
     collection_name
   end
 
-  def add_to_collection(collection_name, file)
+  def add_item_to_collection(collection_name, file)
+          puts collection_name
+          puts file
     ebook = Ebook::Ebook.new(file)
     @collections[collection_name][:items] << ebook.hash
   end
 
-  def export
+  def to_json
     JSON.generate(@collections)
   end
 end
