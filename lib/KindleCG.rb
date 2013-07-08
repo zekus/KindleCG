@@ -9,27 +9,27 @@ module KindleCG
     attr_writer :device_mountpoint, :os_mountpoint
 
     def device_mountpoint
-      @device_mountpoint ||= '/mnt/us'
+      @device_mountpoint ||= Pathname.new '/mnt/us'
     end
 
     def os_mountpoint
-      @os_mountpoint ||= '/Volumes/Kindle'
+      @os_mountpoint ||= Pathname.new '/Volumes/Kindle'
     end
 
     def system_path
-      device_mountpoint.join '/system'
+      device_mountpoint.join('system').to_path
     end
 
     def documents_path
-      device_mountpoint.join '/documents'
+      device_mountpoint.join('documents').to_path
     end
 
     def os_documents_path
-      os_mountpoint.join '/documents'
+      os_mountpoint.join('documents').to_path
     end
 
     def os_collections_path
-      os_mountpoint.join '/system/collections.json'
+      os_mountpoint.join('system/collections.json').to_path
     end
   end
   
@@ -38,7 +38,7 @@ module KindleCG
       @collections = Collections.new
     end
 
-    def generate_collection
+    def generate_collections
       generate_tree(KindleCG.os_documents_path)
       @collections
     end

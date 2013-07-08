@@ -5,7 +5,7 @@ module KindleCG
       attr_reader :title, :mobi_type, :text_encoding, :exth
 
       def initialize(file)
-        sections = Sectionizer.new(file, 'rb')
+        sections = KindleCG::Ebook::Sectionizer.new(file, 'rb')
         @header = sections.load_section(0)
         @len_mobi = @header[20..-1].unpack('L>')[0] + 16
       end 

@@ -1,6 +1,6 @@
-require 'sectionizer'
-require 'mobi'
-require 'pdf'
+require 'KindleCG/ebook/sectionizer'
+require 'KindleCG/ebook/mobi'
+require 'KindleCG/ebook/pdf'
 require 'digest'
 require 'forwardable'
 
@@ -25,7 +25,7 @@ module KindleCG
         else
           folder = File.dirname(@file)
           filename = File.basename(@file)
-          "*" + Digest::SHA1.hexdigest([KindleCG.device_mountpoint, folder.match(/(documents).*/)[0], filename].join("/"))
+          "*" + Digest::SHA1.hexdigest([KindleCG.device_mountpoint.to_path, folder.match(/(documents).*/)[0], filename].join("/"))
         end
       end
 

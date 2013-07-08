@@ -2,6 +2,6 @@
 Signal.trap("INT") { exit 1 }
 
 require 'KindleCG'
-#require 'KindleCG/cli'
+require 'KindleCG/cli'
 
-#KindleCG::CLI.start(ARGV)
+KindleCG::CLI.start(ARGV)
