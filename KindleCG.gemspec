@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = KindleCG::VERSION
   spec.authors       = ["Antonio Lorusso"]
   spec.email         = ["antonio.lorusso@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Mirror your ebooks directory tree into kindle collections}
+  spec.summary       = %q{kindlecg helps you manage your kindle collections using the filesystem directory tree}
+  spec.homepage      = "http://antoniolorusso.com/KindleCG"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -18,6 +18,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency "thor", "~> 0.18.1"
+
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
 end
