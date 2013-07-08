@@ -1,3 +1,5 @@
+require_relative 'ebook/ebook'
+
 class Collections
   attr_reader :collections
 
@@ -12,7 +14,8 @@ class Collections
   end
 
   def add_to_collection(collection_name, file)
-    @collections[collection_name][:items] << file.hash
+    ebook = Ebook::Ebook.new(file)
+    @collections[collection_name][:items] << ebook.hash
   end
 
   def export

@@ -3,11 +3,11 @@
 require 'find'
 require 'json'
 require_relative 'ebook/mobi'
+require_relative 'ebook/pdf'
+require_relative 'collections'
 
 class Kindle
   
-  FILTER = ['mobi','azw']
-
   def initialize(device_mountpoint, os_mountpoint)
     @device_mountpoint = device_mountpoint
     @os_mountpoint = os_mountpoint
@@ -24,8 +24,11 @@ class Kindle
       if FileTest.directory?(path)
         current_collection = @collections.add(relative_path(path))
       else
-        next if !FILTER.include?(File.basename(path).split('.')[-1])
-        @collections.add_to_collection(current_collection, path) unless current_collection.nil?
+        begin
+          @collections.add_to_collection(current_collection, path) unless current_collection.nil?
+        rescue IOError => e
+          next
+        end
       end
     end
     @collections
