@@ -20,7 +20,8 @@ Just run the kindlecg without any option to show the help.
 By default, the commands assume that you are on a mac and the kindle mountpoint is /Volumes/Kindle but you can change that passing 
 the option *-m* followed by the mountpoint of the kindle on your computer.
 
-__WARNING : The script is under development. It overrides your current collections!__
+The script override your kindle collections but can take a backup that you can manually restore if you pass the *-b* option.
+The .bak file will be saved in your kindle device in the system folder.
 
 ## Contributing
 

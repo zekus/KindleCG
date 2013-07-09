@@ -63,6 +63,10 @@ module KindleCG
       end
     end
 
+    def backup
+      FileUtils.cp(KindleCG.os_collections_path, [KindleCG.os_collections_path, 'bak'].join('.'), {preserve: false})
+    end
+
     def save
       IO.write(KindleCG.os_collections_path, @collections.to_json)
     end

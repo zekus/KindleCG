@@ -5,6 +5,8 @@ module KindleCG
   class CLI < Thor
     method_option :mountpoint, type: :string, aliases: "-m",
       desc: "specify a different mountpoint for the kindle device"
+    method_option :backup, type: :boolean, aliases: "-b",
+      desc: "take a backup of the collections before overriding it"
     desc 'generate', 'generate and save the collections'
     def generate
       if options[:mountpoint]
@@ -15,6 +17,9 @@ module KindleCG
 
       kindle = Generator.new
       kindle.generate_collections
+      if options[:backup]
+        kindle.backup
+      end
       kindle.save
     end
 
