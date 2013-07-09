@@ -2,7 +2,6 @@
 ## Directory Tree to Kindle Collections generator
 
 A command line ruby script that will generate collections in your kindle based on the directory structure of your ebooks.
-The library to understand the mobi format are a straight port/refactor of the python plugin for calibre.
 
 ## Installation
 
@@ -10,8 +9,16 @@ The library to understand the mobi format are a straight port/refactor of the py
 
 ## Usage
 
-After installing the gem you will have access to a command line tool **kindlecg**.
-Just run it and will generate collections based on the directory structure of your ebooks in your kindle device.
+After installing the gem you will have access to the command line tool **kindlecg**.
+
+The kindlecg has just two commands available:
+  kindlecg check           # check if a kindle is attached to the computer
+  kindlecg generate        # generate and save the collections
+
+Just run the kindlecg without any option to show the help.
+
+By default, the commands assume that you are on a mac and the kindle mountpoint is /Volumes/Kindle but you can change that passing 
+the option *-m* followed by the mountpoint of the kindle on your computer.
 
 __WARNING : The script is under development. It overrides your current collections!__
 
