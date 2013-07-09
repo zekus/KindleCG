@@ -34,8 +34,7 @@
 <h2>
 <a name="directory-tree-to-kindle-collections-generator" class="anchor" href="#directory-tree-to-kindle-collections-generator"><span class="octicon octicon-link"></span></a>Directory Tree to Kindle Collections generator</h2>
 
-<p>A command line ruby script that will generate collections in your kindle based on the directory structure of your ebooks.
-The library to understand the mobi format are a straight port/refactor of the python plugin for calibre.</p>
+<p>A command line ruby script that will generate collections in your kindle based on the directory structure of your ebooks.</p>
 
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
@@ -46,10 +45,19 @@ The library to understand the mobi format are a straight port/refactor of the py
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>After installing the gem you will have access to a command line tool <strong>kindlecg</strong>.
-Just run it and will generate collections based on the directory structure of your ebooks in your kindle device.</p>
+<p>After installing the gem you will have access to the command line tool <strong>kindlecg</strong>.</p>
 
-<p><em><em>WARNING</em> The script is under development. It override your current collections!!!</em></p>
+<p>The kindlecg has just two commands available:
+  kindlecg check           # check if a kindle is attached to the computer
+  kindlecg generate        # generate and save the collections</p>
+
+<p>Just run the kindlecg without any option to show the help.</p>
+
+<p>By default, the commands assume that you are on a mac and the kindle mountpoint is /Volumes/Kindle but you can change that passing 
+the option <em>-m</em> followed by the mountpoint of the kindle on your computer.</p>
+
+<p>The script override your kindle collections but can take a backup that you can manually restore if you pass the <em>-b</em> option.
+The .bak file will be saved in your kindle device in the system folder.</p>
 
 <h2>
 <a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
