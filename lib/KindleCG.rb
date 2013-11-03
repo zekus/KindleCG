@@ -2,6 +2,7 @@ require 'KindleCG/version'
 require 'json'
 require 'KindleCG/collections'
 require 'KindleCG/ebook/ebook'
+require 'pathname'
 
 module KindleCG
 
