@@ -11,9 +11,9 @@ A command line ruby script that will generate collections in your kindle based o
 
 After installing the gem you will have access to the command line tool **kindlecg**.
 
-The kindlecg has just two commands available:
-  kindlecg check           # check if a kindle is attached to the computer
-  kindlecg generate        # generate and save the collections
+The kindlecg has just two commands available:   
+  **kindlecg check**           # check if a kindle is attached to the computer   
+  **kindlecg generate**        # generate and save the collections
 
 Just run the kindlecg without any option to show the help.
 
